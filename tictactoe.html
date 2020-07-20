@@ -5,29 +5,32 @@
     <meta name="TicTacToe" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        h2{
-            text-align: center;
+        body{
+            background-color: black;
+            color: white;
         }
-        #game{
-            background-color:;
-            color: ;
-            border: ;
+        #name{
+            display: inline-block;
         }
-        .row{
-            /* margin: 0 auto;
-            width:375px; */
+        #turn1{
+            margin-left: 50px;
+        }
+        #turn2{
+            margin-left: 50px;
+            background-color:yellow;
+            color:yellow;
         }
         .square {
             display: inline-block;
             width: 100px;
             height:100px;
             margin: 10px;
-            background-color: cadetblue;
+            background-color: white;
         }
     </style>
 </head>
 <body>
-    <h2>Tic Tac Toe</h2>
+    <div id='name'><h2>Tic Tac Toe</h2></div> <span id='turn1'>TURN:</span><span id='turn2'>yellow</span>
     <div class='row'>
         <div class='square' id='block_00'></div>
         <div class='square' id='block_01'></div>
@@ -53,17 +56,21 @@
         square[i].addEventListener("click", function() {
             if (count%2===0){
                 this.style.backgroundColor= 'yellow';
+                document.getElementById('turn2').style.backgroundColor='yellow';
+                document.getElementById('turn2').style.color='yellow';
                 count+=1;
             }
             else{
-                    this.style.backgroundColor='black';
-                    count+=1;
+                this.style.backgroundColor='cadetblue';
+                document.getElementById('turn2').style.backgroundColor='cadetblue';
+                document.getElementById('turn2').style.color='cadetblue';
+                count+=1;
             }
         })
     }
     document.getElementById('reset_btn').addEventListener('click',function(){
         for (let i=0;i<square.length;i++){
-            square[i].style.backgroundColor='cadetblue'
+            square[i].style.backgroundColor='white';
         }
     })
 </script>
